@@ -1,6 +1,6 @@
-import { Button, Show } from "@chakra-ui/react";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Show, Text } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   return (
@@ -9,15 +9,25 @@ function App() {
         base: `"nav" "base"`,
         lg: `"nav nav" "aside main"`, // wider than 1024px
       }}
+      templateColumns={{
+        base: "1fr",
+        lg: "250px 1fr",
+      }}
     >
       <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
-      <GridItem hideBelow={"lg"} area={"aside"} padding={"10px"} bg={"gold"}>
+      <Show above="lg">
+        <GridItem area={"aside"}>Aside</GridItem>
+      </Show>
+      {/* <GridItem hideBelow={"lg"} area={"aside"}>
         Aside
-      </GridItem>
-      <GridItem area={"main nav"} padding={"10px"} bg={"blue"}>
-        GameGrid
+      </GridItem> */}
+      {/* Above used prior to package.json*/}
+
+      <GridItem area="main">
+        <Text>Test</Text>
+        <GameGrid />
       </GridItem>
     </Grid>
   );
