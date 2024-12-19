@@ -1,10 +1,13 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
+import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-  const { games, error } = useGames();
+  const { games, error, isLoading } = useGames();
 
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14]; //local var is fine as this skeleton will not change. Simply a place holder whilst site loads actual GameCards
+  //added more due to size of ultrawides. With only 6 loading skeletons you can see empty space
   return (
     <>
       {error && <Text>{error}</Text>}
@@ -13,6 +16,8 @@ const GameGrid = () => {
         padding={"10"}
         spacing={"10"}
       >
+        {isLoading &&
+          skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {games.map((game) => (
           <GameCard key={game.id} game={game}></GameCard>
         ))}
