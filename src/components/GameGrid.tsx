@@ -7,7 +7,7 @@ import GameCardContainer from "./GameCardContainer";
 const GameGrid = () => {
   const { data, error, isLoading } = useGames();
 
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14]; //local var is fine as this skeleton will not change. Simply a place holder whilst site loads actual GameCards
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; //local var is fine as this skeleton will not change. Simply a place holder whilst site loads actual GameCards
   //added more due to size of ultrawides. With only 6 loading skeletons you can see empty space
   return (
     <>
