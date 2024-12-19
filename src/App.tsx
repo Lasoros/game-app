@@ -26,7 +26,6 @@ function App() {
       {/* Above used prior to package.json*/}
 
       <GridItem area="main">
-        <Text>Test</Text>
         <GameGrid />
       </GridItem>
     </Grid>
