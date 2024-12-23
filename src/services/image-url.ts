@@ -6,6 +6,8 @@ const getCroppedImageUrl = (url: string) => {
     // return url.slice(0, index) + 'crop/600/400' + url.slice(index); <--- missing / at end of 400; Need to watch it
 
     const target = 'media/';
+
+    if (!url) return " ";
     
     const index = url.indexOf(target) + target.length;
     return url.slice(0, index) + 'crop/600/400/' + url.slice(index);
